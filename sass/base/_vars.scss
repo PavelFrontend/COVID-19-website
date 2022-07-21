@@ -1,0 +1,10 @@
+$blue:#3c6382;
+$dark-blue:#0a3d62;
+$red:#ff3300;
+
+@mixin flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}

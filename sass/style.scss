@@ -1,0 +1,257 @@
+@import "./base/reset";
+@import "./base/base";
+@import "./base/vars";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&display=swap');
+
+.header {
+
+	&__container {
+		@include flex();
+		justify-content: space-between;
+		padding: 1rem 10%;
+	}
+
+	&__logo {
+		font-weight: 700;
+		font-size: 1.75rem;
+	}
+
+	&__menu {
+		display: flex;
+		justify-content: center;
+		font-size: 1.5rem;
+		font-weight: 400;
+		gap: 2.5rem;
+	}
+
+	&__navbar {
+		display: flex;
+		gap: 1.5rem;
+		position: relative;
+
+		#close-btn{
+         position: absolute;
+         top:1.5rem; right:2rem;
+         font-size: 4rem;
+         cursor: pointer;
+         display: none;
+
+         &:hover{
+            transform: rotate(90deg);
+         }
+      }
+	}
+
+	&__navbar-link {
+		&:hover {
+			color: $dark-blue;	
+		}
+	}
+
+	#menu-btn{
+      display: none;
+   }
+}
+
+.home {
+background-image: url('.././assets/images/home-bg.jpg');
+background-size: cover;
+background-position: center;
+height: 42.75rem;
+background-attachment: fixed;
+
+	&__content {
+	 text-align: center;
+    padding-top: 3rem;
+	}
+
+	&__content-title {
+		font-size: 3rem;
+		color: #0a3d62;
+	}
+
+	&__content-button {
+		margin-top: 1rem;
+	}
+}
+
+.prevent {
+
+	&__row {
+		@include flex();
+	}
+
+	&__item {
+		flex:1 1 22.5rem;
+    border-radius: 0.5rem;
+    margin:1rem;
+    padding:1rem;
+    text-align: center;
+
+	 &:hover{
+		box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1);
+		cursor: pointer;
+	 }
+	}
+
+	&__item-img {
+		height:12rem;
+    padding:1rem;
+	 margin: 0 auto;
+	}
+
+}
+
+.symptoms, .wash {
+	background-image: url('.././assets/images/background-img.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+
+	&__row {
+		@include flex();
+		flex-wrap: nowrap;
+	}
+
+	&__img {
+		width: 40rem;
+	}
+
+	&__items {
+		@include flex();
+	}
+
+	&__item {
+		margin:1rem;
+    text-align: center;
+	}
+
+	&__item-img {
+	 width:15rem;
+    padding:1rem;
+	}
+
+	&__item-title {
+		color: $blue;
+	}
+}
+
+.precautions {
+
+	&__row {
+		@include flex();
+	}
+
+	&__item {
+	 margin:1.5rem;
+    flex:1 1 32.5rem;
+    border:0.1rem solid rgba(0,0,0,.1);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1);
+
+	 &:last-child {
+		.precautions__item-title {
+			background-color: $red;
+		}
+	 }
+	}
+
+	&__item-title {
+	 padding:1.25rem 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+    background-color:$blue;
+    color:#fff;
+	}
+
+	&__item-box {
+		@include flex();
+		flex-wrap: nowrap;
+		padding: 1rem;
+		h3 {
+			color: $blue;
+			font-size: 1.5rem;
+		}
+		img {
+			padding: 1rem;
+		}
+	}
+}
+
+.footer {
+
+	&__row {
+		@include flex();		
+	}
+
+	&__item {
+		margin: 0 5rem;
+	}
+
+	&__item-title {
+	 font-size: 1.5rem;
+    color:$blue;
+    padding:1rem 0;
+	}
+
+	&__item-link {
+		color: $blue;
+		padding:0.5rem 0;
+		display: block;
+		:hover {
+			color: $dark-blue;
+		}
+	}
+}
+
+@media (max-width:1200px){
+ 
+	.symptoms, .wash {
+		&__img {
+			display: none;
+		}
+	}
+
+}
+
+@media (max-width:991px){
+
+   .header{
+
+      #menu-btn{
+         display:block;
+      }
+
+      &__navbar{
+         position: fixed;
+         top:0; right:-100%;
+         width: 50%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+			background-color: $blue;
+			color: #fff;
+         z-index: 1000;
+
+         #close-btn{
+            display: block;
+         }
+
+         &.active{
+            box-shadow: 0 0 0 100vw rgba(0,0,0,.8);
+            right: 0;
+         }
+		}
+
+		&__navbar-link {
+			margin: 0 auto;
+			font-size: 4rem;
+			&:hover {
+				color: $dark-blue;
+			}
+		}
+	}     
+}
+
+
+
